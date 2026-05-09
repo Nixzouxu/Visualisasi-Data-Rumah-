@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Rumah Visualisasi D3.js</title>
+  <link rel="stylesheet" href="CSS/styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-titles">
+    <h1>Data Rumah</h1>
+    <span class="subtitle">Visualisasi Harga vs Luas Bangunan · Jakarta</span>
+  </div>
+  <button id="theme-toggle">Light Mode</button>
+</header>
+
+<div class="dashboard">
+
+  <!-- SCATTER PLOT -->
+  <div class="panel" id="scatter-panel">
+    <div class="panel-title">Scatter Plot : Luas Bangunan vs Harga</div>
+    <div class="scatter-info">
+      Sumbu X: <span>Luas Bangunan (m²)</span> &nbsp;|&nbsp;
+      Sumbu Y: <span>Harga (IDR)</span> &nbsp;|&nbsp;
+      Gunakan brush untuk seleksi area
+    </div>
+    <svg id="scatter-svg"></svg>
+  </div>
+
+  <!-- BAR CHART -->
+  <div class="panel" id="bar-panel">
+    <div class="panel-title">Filter : Lokasi</div>
+    <p class="panel-desc">
+      Klik area kolom untuk filter data scatter plot
+    </p>
+    <svg id="bar-svg" style="width:100%;height:280px;display:block;"></svg>
+    <span id="filter-tag" class="filter-tag hidden"></span>
+  </div>
+
+  <!-- STATS -->
+  <div class="panel" id="stats-panel">
+    <div class="panel-title">Statistik Seleksi</div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-label">Jumlah Data</div>
+        <div class="stat-value"><span id="stat-count">—</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Rata-rata Harga</div>
+        <div class="stat-value"><span id="stat-avg-harga">—</span><span class="stat-unit">IDR</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Rata-rata LB</div>
+        <div class="stat-value"><span id="stat-avg-lb">—</span><span class="stat-unit">m²</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Median Harga</div>
+        <div class="stat-value"><span id="stat-median">—</span><span class="stat-unit">IDR</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="tooltip"></div>
+
+<div class="hint-bar">
+  <span><kbd>Bar Chart</kbd> Klik untuk filter lokasi</span>
+  <span><kbd>Brush</kbd> Drag di scatter plot untuk seleksi area</span>
+  <span><kbd>Hover</kbd> Arahkan kursor ke titik untuk detail</span>
+  <span><kbd>Filter Tag</kbd> Klik ✕ untuk reset filter</span>
+</div>
+
+<script src="JS/d3.v7.min.js"></script>
+<script src="JS/main.js"></script>
+
+</body>
+</html>
